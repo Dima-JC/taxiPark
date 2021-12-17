@@ -1,11 +1,12 @@
 import { useMemo } from "react";
+import { useSelector } from "react-redux";
 import { FormattedMessage } from "react-intl";
+
+import { isPageCarSelector } from "../../../redux/selectors";
 import { CAR_INFO, DRIVER_INFO } from "../../../constants/unitsTitles"
 
 import IconsDirection from '../../../ascets/img/svg/IconsDirection.svg'
 import './unitsTitles.style.scss'
-import { useSelector } from "react-redux";
-import { isPageCarSelector } from "../../../redux/selectors";
 
 const uuid = require("react-uuid");
 

@@ -1,12 +1,12 @@
+import { useSelector } from "react-redux";
+import { useMemo } from "react";
 import { FormattedMessage } from "react-intl";
 
 import { Data, Status } from "../../../../interfaces";
 import { DRIVER_TITLES, CAR_TITLES } from "../../../../constants/additionalInfo";
+import { isPageCarSelector } from "../../../../redux/selectors";
 
 import icons from "../../../../ascets/img/svg/IconsDirection.svg";
-import { useMemo } from "react";
-import { useSelector } from "react-redux";
-import { isPageCarSelector } from "../../../../redux/selectors";
 
 const uuid = require("react-uuid");
 
@@ -51,8 +51,8 @@ const AdditionalData = ({ additionalData }: Props) => {
     return (
         <div className="table_section_isActive">
             <div className="block">
-                {isPageCar ?
-                    renderTitles(DRIVER_TITLES)
+                {isPageCar 
+                    ? renderTitles(DRIVER_TITLES)
                     : renderTitles(CAR_TITLES)}
             </div>
             {mappedItems}

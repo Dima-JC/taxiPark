@@ -37,7 +37,6 @@ const FormSectionTab = ({ value, property, pageName, data, id }: Props) => {
   const patchNewInformation = (newValue: string | Status, property: string) => {
     (data[property as keyof Data] as string | Status) = newValue;
     setIsMutable(!isMutable);
-    console.log(pageName, id, { [property]: newValue })
     dispatch(patchData(pageName, id, { [property]: newValue }));
   };
 
@@ -45,6 +44,7 @@ const FormSectionTab = ({ value, property, pageName, data, id }: Props) => {
     if (event.hasOwnProperty("key") && (event as KeyboardEvent).key !== "Enter") {
       return;
     }
+
     const target = event.target as HTMLInputElement;
     target.value
       ? patchNewInformation(target.value, target.id)

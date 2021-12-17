@@ -1,4 +1,4 @@
-import React, { ReactChild, ReactChildren, ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import { useField } from 'formik';
 import { FormattedMessage } from 'react-intl';
 

@@ -25,14 +25,14 @@ const FormSection = ({ data, pageName }: Props) => {
   const [additionalData, setAdditionalData] = useStateIfMounted<Data[]>([]);
   const [isModal, setIsModal] = useStateIfMounted<boolean>(true);
   const isPageCar = useSelector(isPageCarSelector);
-
-  const className = additionalData.length !== 0 ?
-    'table_section-showButton'
-    : 'table_section-showButton isActive';
   const dispatch = useDispatch();
 
+  const className = additionalData.length !== 0 
+    ? 'table_section-showButton'
+    : 'table_section-showButton isActive';
+
   const search = async () => {
-    if (isPageCar) {
+    if (!isPageCar) {
       const cars = await GET_CARS_BY_DRIVER(String(data.id));
       setAdditionalData(cars as Data[]);
     } else {
@@ -43,7 +43,7 @@ const FormSection = ({ data, pageName }: Props) => {
   };
 
   useEffect(() => {
-    search();
+    search();    
     setIsModal(true);
   }, [])
 
